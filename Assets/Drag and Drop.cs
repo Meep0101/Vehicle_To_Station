@@ -218,43 +218,43 @@ public class DragAndDrop : MonoBehaviour
 
     private void OnMouseUp()
     {
-        isDragging = false;
+      isDragging = false;
 
-        if (Vector3.Distance(transform.position, terminal.transform.position) < 1.0f)
+    if (Vector3.Distance(transform.position, terminal.transform.position) < 1.0f)
+    {
+        // Handle dropping the vehicle on the terminal
+        Color vehicleColor = GetComponent<SpriteRenderer>().color;
+
+        // Change terminal color based on the type of vehicle
+        if (vehicleColor == Color.red)
         {
-            // Handle dropping the vehicle on the terminal
-            Color vehicleColor = GetComponent<SpriteRenderer>().color;
-
-            // Change terminal color and item inside based on the type of vehicle
-            if (vehicleColor == Color.red)
-            {
-                terminal.ChangeColor(Color.red);
-                CreateShapeInsideStation("Circle");
-            }
-            else if (vehicleColor == Color.blue)
-            {
-                terminal.ChangeColor(Color.blue);
-                CreateShapeInsideStation("Triangle");
-            }
-            else if (vehicleColor == Color.yellow)
-            {
-                terminal.ChangeColor(Color.yellow);
-                CreateShapeInsideStation("Square");
-            }
-            else if (vehicleColor == Color.green)
-            {
-                terminal.ChangeColor(Color.green);
-                CreateShapeInsideStation("IsomorphicTriangle");
-            }
-
-            // Reset the position to the original position
-            transform.position = initialPosition;
+            terminal.ChangeColor(Color.red);
+            CreateShapeInsideStation("Circle");
         }
-        else
+        else if (vehicleColor == Color.blue)
         {
-            // The vehicle was not dropped on the terminal, move it back to the original position
-            transform.position = initialPosition;
+            terminal.ChangeColor(Color.blue);
+            CreateShapeInsideStation("Triangle");
         }
+        else if (vehicleColor == Color.yellow)
+        {
+            terminal.ChangeColor(Color.yellow);
+            CreateShapeInsideStation("Square");
+        }
+        else if (vehicleColor == Color.green)
+        {
+            terminal.ChangeColor(Color.green);
+            CreateShapeInsideStation("IsomorphicTriangle");
+        }
+
+        // Reset the position to the original position
+        transform.position = initialPosition;
+    }
+    else
+    {
+        // The vehicle was not dropped on the terminal, move it back to the original position
+        transform.position = initialPosition;
+    }
     }
 
     private void CreateShapeInsideStation(string shape)
