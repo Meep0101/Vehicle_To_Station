@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3849779330374515100}
   - component: {fileID: 4181486878960929161}
   - component: {fileID: 2995585148155652517}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pedicab
   m_TagString: Pedicab
   m_Icon: {fileID: 0}
@@ -138,8 +138,10 @@ MonoBehaviour:
   pedicabScript: {fileID: 2995585148155652517}
   motorcycleScript: {fileID: 0}
   busScript: {fileID: 0}
-  vehiclePrefab: {fileID: 0}
-  vehicleSpawnPoint: {fileID: 6405756817248408063}
+  circlePrefab: {fileID: 0}
+  trianglePrefab: {fileID: 0}
+  squarePrefab: {fileID: 0}
+  isomorphicTrianglePrefab: {fileID: 0}
 --- !u!114 &2995585148155652517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,5 +156,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vehicleColor: {r: 0, g: 0, b: 1, a: 1}
   vehicleName: Pedicab
-  vehicleCount: 3
+  vehicleCount: 1
   canBeMoved: 1

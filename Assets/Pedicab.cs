@@ -8,6 +8,7 @@ public class Pedicab : MonoBehaviour
     public string vehicleName = "Pedicab";
     public int vehicleCount = 3;
     public bool canBeMoved = true;
+    //public GameObject shapePrefab;
 
     public void DecrementCount()
     {

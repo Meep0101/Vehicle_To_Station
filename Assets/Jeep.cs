@@ -9,6 +9,8 @@ public class Jeep : MonoBehaviour
     public int vehicleCount = 3;
     public bool canBeMoved = true;
 
+     //public GameObject shapePrefab;
+
     public void DecrementCount()
     {
         vehicleCount--;

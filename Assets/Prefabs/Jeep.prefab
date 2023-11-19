@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2476691987674440936}
   - component: {fileID: 5518250098191018548}
   - component: {fileID: 7001463088328673852}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Jeep
   m_TagString: Jeep
   m_Icon: {fileID: 0}
@@ -138,8 +138,10 @@ MonoBehaviour:
   pedicabScript: {fileID: 0}
   motorcycleScript: {fileID: 0}
   busScript: {fileID: 0}
-  vehiclePrefab: {fileID: 0}
-  vehicleSpawnPoint: {fileID: 654589991143949763}
+  circlePrefab: {fileID: 0}
+  trianglePrefab: {fileID: 0}
+  squarePrefab: {fileID: 0}
+  isomorphicTrianglePrefab: {fileID: 0}
 --- !u!114 &7001463088328673852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,5 +156,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vehicleColor: {r: 0, g: 1, b: 0, a: 1}
   vehicleName: Jeep
-  vehicleCount: 3
+  vehicleCount: 1
   canBeMoved: 1

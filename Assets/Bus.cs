@@ -8,6 +8,7 @@ public class Bus : MonoBehaviour
     public string vehicleName = "Bus";
     public int vehicleCount = 3;
     public bool canBeMoved = true;
+     //public GameObject shapePrefab;
 
     public void DecrementCount()
     {

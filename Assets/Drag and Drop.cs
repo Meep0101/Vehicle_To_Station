@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,11 @@ public class DragAndDrop : MonoBehaviour
     public Bus busScript;
     private Vector3 originalPosition;
     // Add similar references for the other vehicle types
+
+    public GameObject circlePrefab;
+    public GameObject trianglePrefab;
+    public GameObject squarePrefab;
+    public GameObject isomorphicTrianglePrefab;
 
     private void Start()
     {
@@ -50,8 +56,9 @@ public class DragAndDrop : MonoBehaviour
                 terminal.ChangeColor(GetComponent<SpriteRenderer>().color);
                 terminal.IncrementCount();
                 UpdateVehicleCount(-1); // Decrease the count by 1 when a vehicle is first dropped
-            
-            SpawnShapeBasedOnVehicle(GetComponent<SpriteRenderer>().color);
+
+                // Spawn a shape based on the type of vehicle
+                SpawnShape();
             }
             else if (terminal.currentColor == GetComponent<SpriteRenderer>().color)
             {
@@ -62,6 +69,9 @@ public class DragAndDrop : MonoBehaviour
 
                     // Disable the renderer of the object when it's dropped onto the terminal
                     GetComponent<Renderer>().enabled = false;
+
+                    // Spawn a shape based on the type of vehicle
+                    SpawnShape();
                 }
                 else
                 {
@@ -75,6 +85,9 @@ public class DragAndDrop : MonoBehaviour
                 terminal.ChangeColor(GetComponent<SpriteRenderer>().color);
                 terminal.ResetCount(1); // Reset the count to 1 when a different vehicle is dropped
                 DecrementVehicleCount();
+
+                // Spawn a shape based on the type of vehicle
+                SpawnShape();
             }
 
             // Reset the position to the original position
@@ -183,6 +196,34 @@ public class DragAndDrop : MonoBehaviour
         {
             int previousCount = busScript.vehicleCount;
             busScript.vehicleCount += count;
+        }
+    }
+
+    private void SpawnShape()
+    {
+        // Destroy the previous shape if any
+        GameObject previousShape = GameObject.FindWithTag("Shape");
+        if (previousShape != null)
+        {
+            Destroy(previousShape);
+        }
+
+        // Instantiate a new shape based on the type of vehicle
+        switch (gameObject.tag)
+        {
+            case "Jeep":
+                Instantiate(isomorphicTrianglePrefab, terminal.transform.position, Quaternion.identity);
+                break;
+            case "Pedicab":
+                Instantiate(trianglePrefab, terminal.transform.position, Quaternion.identity);
+                break;
+            case "Motorcycle":
+                Instantiate(squarePrefab, terminal.transform.position, Quaternion.identity);
+                break;
+            case "Bus":
+                Instantiate(circlePrefab, terminal.transform.position, Quaternion.identity);
+                break;
+            // Add cases for other vehicle types if needed
         }
     }
 }
